@@ -14,6 +14,13 @@ const AllCampusesView = (props) => {
     return <div>There are no campuses.</div>;
   }
 
+  // Handle campus deletion
+  const handleDelete = (campusId) => {
+    if(window.confirm("Are you sure you want to delete this campus?")) {
+      onDeleteCampus(campusId);
+    }
+  }
+
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
@@ -32,6 +39,9 @@ const AllCampusesView = (props) => {
           />
           <p>{campus.address}</p>
           <p>{campus.description}</p>
+          <button onClick={() => handleDelete(campus.id)} style={{ marginRight: "10px" }}>
+            Delete
+          </button>
           <hr/>
         </div>
       ))}
