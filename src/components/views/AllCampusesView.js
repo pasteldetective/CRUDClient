@@ -6,6 +6,7 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import defaultCampusImage from "./defaultCampusImage.jpg"; // Import a default campus image
 
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
