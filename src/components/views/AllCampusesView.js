@@ -14,7 +14,7 @@ const AllCampusesView = (props) => {
     return <div>There are no campuses.</div>;
   }
 
-  // Handle campus deletion
+  // Handle campus deletion, which needs to be defined in the parent component?
   const handleDelete = (campusId) => {
     if(window.confirm("Are you sure you want to delete this campus?")) {
       onDeleteCampus(campusId);
