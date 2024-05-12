@@ -8,10 +8,16 @@ const StudentView = (props) => {
   const { student } = props;
 
   // Render a single Student view 
+  //needs to link to the campus page***
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      <h3>{student.campus.name}</h3>
+      <img src={student.imageUrl}/>
+      <p>{"First name: " + student.firstname}</p>
+      <p>{"Last name: " + student.lastname}</p>
+      <p>{"Email: " + student.email}</p>
+      <p>{"GPA: " + student.gpa}</p>
+      <h3>{"Attends: " + student.campus.name}</h3>
     </div>
   );
 
