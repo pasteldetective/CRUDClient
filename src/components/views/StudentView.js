@@ -12,7 +12,7 @@ const StudentView = (props) => {
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      <img src={student.imageUrl}/>
+      <img src={student.imageUrl} style={{ width: "35rem", height: "auto" }}/>
       <p>{"First name: " + student.firstname}</p>
       <p>{"Last name: " + student.lastname}</p>
       <p>{"Email: " + student.email}</p>
