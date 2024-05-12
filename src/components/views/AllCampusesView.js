@@ -6,19 +6,11 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import defaultCampusImage from "./defaultCampusImage.jpg"; // Import a default campus image
 
 const AllCampusesView = (props) => {
   // If there is no campus, display a message.
   if (!props.allCampuses.length) {
     return <div>There are no campuses.</div>;
-  }
-
-  // Handle campus deletion, which needs to be defined in the parent component?
-  const handleDelete = (campusId) => {
-    if(window.confirm("Are you sure you want to delete this campus?")) {
-      onDeleteCampus(campusId);
-    }
   }
 
   // If there is at least one campus, render All Campuses view 
@@ -31,17 +23,10 @@ const AllCampusesView = (props) => {
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
+          <img src={campus.imageUrl} alt={campus.name + ' Campus'}/>
           <h4>campus id: {campus.id}</h4>
-          <img
-            src={campus.image || defaultCampusImage}
-            alt = "Campus"
-            style = {{maxWidth: "100%", height: "auto", marginBottom: "10px"}}
-          />
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <button onClick={() => handleDelete(campus.id)} style={{ marginRight: "10px" }}>
-            Delete
-          </button>
           <hr/>
         </div>
       ))}
