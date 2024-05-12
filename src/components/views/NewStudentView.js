@@ -5,8 +5,7 @@ The Views component is responsible for rendering web page with data provided by 
 It constructs a React component to display the new student page.
 ================================================== */
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles, Typography} from "@material-ui/core";
 
 // Create styling for the input form
 const useStyles = makeStyles( () => ({
@@ -60,6 +59,22 @@ const NewStudentView = (props) => {
             <input type="text" name="lastname" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
+            <input type="text" name="email" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
+            <input type="text" name="gpa" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Image Url: </label>
+            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
             <input type="text" name="campusId" onChange={(e) => handleChange(e)} />
