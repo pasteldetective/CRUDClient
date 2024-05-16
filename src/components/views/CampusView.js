@@ -12,21 +12,38 @@ const CampusView = (props) => {
   
   // Render a single Campus view with list of its students
   return (
-    <div>
-      <h1>{campus.name}</h1>
-      <img src={campus.imageUrl} style={{ width: "35rem", height: "auto" }}/>
-      <p>{campus.address}</p>
-      <p>{campus.description}</p>
-      {campus.students.map( student => {
+    <div className="campus">
+      <h1 className="campusName">{campus.name} 
+      </h1>
+      <p className="text"><span className="label">Address: </span>{campus.address}</p>
+      <img className="campusImage" src = {campus.imageUrl}  alt="campus_image" width="500" height="300"></img>
+    
+      <div className="descriptionContainer">
+        <p className="text">{campus.description}</p>
+      </div>
+      
+      <span>
+        <Link to={`/editcampus/${campus.id}`}>
+          <button className="editButton"> Edit </button>
+        </Link>
+      </span>
+    
+      <h1>Enrolled Students</h1>
+      <p className="numberStudents">Number of Students: <span className="numberStudentsNumber">{campus.students.length}</span></p>
+      {campus.students.length === 0 ?
+        <p className="text"> No enrolled students </p>
+        :
+      campus.students.map( student => {
         let name = student.firstname + " " + student.lastname;
         return (
           <div key={student.id}>
-            <Link to={`/student/${student.id}`}>
-              <h2>{name}</h2>
+            <Link style={{textDecoration: 'none'}} to={`/student/${student.id}`}>
+              <div className="studentLink" >{name}</div>
             </Link>             
           </div>
         );
       })}
+      <br/>
     </div>
   );
 };
