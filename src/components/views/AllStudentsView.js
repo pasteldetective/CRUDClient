@@ -24,7 +24,6 @@ const AllStudentsView = (props) => {
   return (
     <div>
       <h1>All Students</h1>
-
       {students.map((student) => {
           let name = student.firstname + " " + student.lastname;
           return (
@@ -32,8 +31,6 @@ const AllStudentsView = (props) => {
               <Link to={`/student/${student.id}`}>
                 <h2>{name}</h2>
               </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
-              <hr/>
             </div>
           );
         }
@@ -42,7 +39,6 @@ const AllStudentsView = (props) => {
       <Link to={`/newstudent`}>
         <button>Add New Student</button>
       </Link>
-      <br/><br/>
     </div>
   );
 };
