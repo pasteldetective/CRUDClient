@@ -38,7 +38,7 @@ const HomePageView = () => {
             Discover students enrolled in various campuses.
           </Typography>
           <Button component={Link} to="/students" variant="contained" color="primary">
-            Explore Campuses
+            Explore Students
           </Button>
         </CardContent>
       </Card>
