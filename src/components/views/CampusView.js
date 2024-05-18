@@ -5,6 +5,7 @@ The Views component is responsible for rendering web page with data provided by 
 It constructs a React component to display a single campus and its students (if any).
 ================================================== */
 import { Link, useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 // Take in props data to construct the component
 const CampusView = (props) => {
@@ -37,7 +38,7 @@ const CampusView = (props) => {
       
       <span>
         <Link to={`/editcampus/${campus.id}`}>
-          <button className="editButton"> Edit </button>
+        <Button variant="contained" color="primary" className="editButton"> Edit </Button>
         </Link>
         <button className="deleteButton" onClick={() => nowDeleteCampus(campus.id)}>Delete</button>
       </span>
