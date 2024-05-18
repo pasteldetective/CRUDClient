@@ -12,6 +12,7 @@ const CampusView = (props) => {
   const {campus} = props;
   const history = useHistory();
 
+  // delete campus
   const nowDeleteCampus = async (id) => {
     try {
       const response = await fetch(`/api/campuses/${id}`, { method: 'DELETE' });
