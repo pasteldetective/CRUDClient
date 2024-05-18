@@ -7,7 +7,7 @@ It constructs a React component to display the all students view page.
 import { Link } from "react-router-dom";
 
 const AllStudentsView = (props) => {
-  const {students, deleteStudent} = props;
+  const {students} = props;
   // If there is no student, display a message
   if (!students.length) {
     return (
