@@ -4,11 +4,26 @@ CampusView.js
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display a single campus and its students (if any).
 ================================================== */
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 // Take in props data to construct the component
 const CampusView = (props) => {
   const {campus} = props;
+  const history = useHistory();
+
+  // delete campus
+  const nowDeleteCampus = async (id) => {
+    try {
+      const response = await fetch(`/api/campuses/${id}`, { method: 'DELETE' });
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      history.push('/campuses'); // Redirect to the list of all campuses after deletion
+    } catch (error) {
+      console.error("Failed to delete campus:", error);
+    }
+  };
   
   // Render a single Campus view with list of its students
   return (
@@ -24,8 +39,9 @@ const CampusView = (props) => {
       
       <span>
         <Link to={`/editcampus/${campus.id}`}>
-          <button className="editButton"> Edit </button>
+        <Button variant="contained" color="primary" className="editButton"> Edit </Button>
         </Link>
+        <Button variant="contained" color="secondary" className="deleteButton" onClick={() => nowDeleteCampus(campus.id)}>Delete</Button>
       </span>
     
       <h1>Enrolled Students</h1>
