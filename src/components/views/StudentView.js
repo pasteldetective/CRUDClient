@@ -4,11 +4,26 @@ StudentView.js
 The Views component is responsible for rendering web page with data provided by the corresponding Container component.
 It constructs a React component to display the single student view page.
 ================================================== */
-import { Link } from "react-router-dom";
+import { Link , useHistory} from "react-router-dom";
+import Button from '@material-ui/core/Button';
 //import { editStudent } from "../../store/actions/actionCreators";
 
 const StudentView = (props) => {
-  const { student, deleteStudent } = props;
+  const { student } = props;
+  const history = useHistory();
+
+  const handleDeleteStudent = async (id) => {
+    try {
+      const response = await fetch(`/api/students/${id}`, { method: 'DELETE' });
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+      history.push('/students'); // Redirect to the list of all students after deletion
+    } catch (error) {
+      console.error("Failed to delete student:", error);
+    }
+  };
+
   if(student === null)
   {
     return (
@@ -41,8 +56,9 @@ const StudentView = (props) => {
 
       <div>
           <Link to={`/editstudent/${student.id}`}>
-            <button className="editButton">Edit</button>
+          <Button variant="contained" color="primary" className="editButton">Edit</Button>
           </Link>
+          <Button variant="contained" color="secondary" className="deleteButton" onClick={() => handleDeleteStudent(student.id)}>Delete</Button>
       </div>
       
     </div>
