@@ -1,7 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
 
 // Create styling for the input form.
 const useStyles = makeStyles( () => ({
