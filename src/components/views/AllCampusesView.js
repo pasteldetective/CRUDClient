@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2),
     backgroundColor: '#f5f5e9', 
     borderRadius: '15px',
-    border: '4px solid #f7cac9',
+    border: '4px solid #ccccc0',
   },
   media: {
     height: 170,
@@ -68,11 +68,17 @@ const AllCampusesView = ({ allCampuses }) => {
 
   return (
     <div className={classes.root}>
+      {allCampuses.length === 0 ? (
+      <Typography variant="h6" className={classes.noCampuses}>
+        There are no campuses.
+      </Typography>
+      ) : (
       <Grid container className={classes.gridContainer} spacing={3}>
         {allCampuses.map(campus => (
           <CampusCard key={campus.id} campus={campus} />
         ))}
       </Grid>
+      )}
       <Link to={`/newcampus`}>
         <Button variant="contained" className={classes.addButton}>Add New Campus</Button>
       </Link>
