@@ -44,6 +44,9 @@ const useStyles = makeStyles(theme => ({
     marginRight: '10px',
     backgroundColor: '#e4f0d0', // Change the background color
     color: '#333333', // Change the text color
+    '&:hover': {
+      backgroundColor: '#C8D9AC',
+    },
   },
 }));
 
