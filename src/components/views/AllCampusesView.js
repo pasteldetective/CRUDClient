@@ -35,11 +35,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
   },
   addButton: {
-    backgroundColor: '#f7cac9',
+    backgroundColor: '#e4f0d0',
     color: '#333333',
     marginTop: theme.spacing(2),
     '&:hover': {
-      backgroundColor: '#f7a6a6',
+      backgroundColor: '#C8D9AC',
     },
   },
 }));
