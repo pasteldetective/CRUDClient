@@ -1,58 +1,51 @@
-import { Button} from "@material-ui/core";
-import {makeStyles, Typography, TextField, } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { makeStyles, Typography, TextField } from "@material-ui/core";
 import { useState } from "react";
 
-{/*Custom styles */}
-const useStyles = makeStyles( () => ({
-    formContainer:{  
-      width: '500px',
-      backgroundColor: '#f5f5e9',
-      borderRadius: '5px',
-      margin: 'auto',
-      padding: '20px',
+const useStyles = makeStyles(() => ({
+  formContainer: {
+    width: '500px',
+    backgroundColor: '#f5f5e9',
+    borderRadius: '5px',
+    margin: 'auto',
+    padding: '20px',
+  },
+  title: {
+    flexGrow: 1,
+    textAlign: 'left',
+    textDecoration: 'none'
+  },
+  customizeAppBar: {
+    backgroundColor: '#11153e',
+    shadows: ['none'],
+  },
+  formTitle: {
+    backgroundColor: '#f7cac9',
+    marginBottom: '15px',
+    textAlign: 'center',
+    borderRadius: '5px 5px 0px 0px',
+    padding: '3px'
+  },
+  submitButton: {
+    backgroundColor: '#e4f0d0',
+    color: '#333333',
+    '&:hover': {
+      backgroundColor: '#C8D9AC',
     },
-    title: {
-      flexGrow: 1,
-      textAlign: 'left',
-      textDecoration: 'none'
-    }, 
-    customizeAppBar:{
-      backgroundColor: '#11153e',
-      shadows: ['none'],
-    },
-    formTitle:{
-      backgroundColor:'#f7cac9',
-      marginBottom: '15px',
-      textAlign: 'center',
-      borderRadius: '5px 5px 0px 0px',
-      padding: '3px'
-    },
+  },
+}));
 
-    submitButton: {
-      backgroundColor: '#e4f0d0',
-      color: '#333333',
-      '&:hover': {
-        backgroundColor: '#C8D9AC',
-      },
-    },
-  }));
+const NewCampusView = (props) => {
+  const { handleChange, handleSubmit } = props;
+  const classes = useStyles();
 
-  const NewCampusView = (props) => {
-    const {handleChange, handleSubmit} = props;
-    const classes = useStyles();
+  const [formData, setFormData] = useState({ name: '', imageUrl: '', address: '', description: '' });
+  const [errors, setErrors] = useState({});
 
-    // State magnages form data
-    const [formData, setFormData] = 
-    useState({ name: '', imageUrl: '', address: '', description: '' });
-    // set state that manages the form errors
-    const [errors, setErrors] = useState({});
-
-  {/*handles changes in the form, set errors in form*/}
   const onChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
 
-    // clears the errors in form
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -64,15 +57,13 @@ const useStyles = makeStyles( () => ({
     if (!value.trim()) {
       error = `${name.charAt(0).toUpperCase() + name.slice(1)} is required.`;
     }
-    setErrors(prev => ({ ...prev, [name]: error })); // update errors state
+    setErrors(prev => ({ ...prev, [name]: error }));
   };
 
-  //handle form submit
   const onSubmit = (e) => {
     e.preventDefault();
     let formIsValid = true;
 
-    // validate only the name and address
     ['name', 'address'].forEach(field => {
       if (!formData[field].trim()) {
         validateField(field, formData[field]);
@@ -81,18 +72,17 @@ const useStyles = makeStyles( () => ({
     });
 
     if (formIsValid) {
-      handleSubmit(e);
+      handleSubmit(e, formData);
     }
   };
 
-    return (
-      <div>
+  return (
+    <div>
       <h1>Add a New Campus Here</h1>
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
-            <Typography style={{ fontWeight: 'bold', 
-            fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#333333' }}>
+            <Typography style={{ fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#333333' }}>
               Add a Campus
             </Typography>
           </div>
@@ -146,4 +136,5 @@ const useStyles = makeStyles( () => ({
     </div>
   );
 };
-  export default NewCampusView
+
+export default NewCampusView;
