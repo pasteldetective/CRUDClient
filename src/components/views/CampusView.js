@@ -62,10 +62,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   deleteButton: {
-    backgroundColor: '#98473e',
+    backgroundColor: '#904c77',
     color: '#ffffff',
     '&:hover': {
-      backgroundColor: '#70312A',
+      backgroundColor: '#612F4F',
     },
   },
 }));
