@@ -34,6 +34,14 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     padding: theme.spacing(2),
   },
+  addButton: {
+    backgroundColor: '#f7cac9',
+    color: '#333333',
+    marginTop: theme.spacing(2),
+    '&:hover': {
+      backgroundColor: '#f7a6a6',
+    },
+  },
 }));
 
 const CampusCard = ({ campus }) => {
