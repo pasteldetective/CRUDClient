@@ -29,12 +29,12 @@ const useStyles = makeStyles( () => ({
     },
 
     submitButton: {
-      backgroundColor: '#f7cac9',
+      backgroundColor: '#e4f0d0',
       color: '#333333',
       '&:hover': {
-        backgroundColor: '#f7a6a6',
+        backgroundColor: '#C8D9AC',
       },
-    }
+    },
   }));
 
   const NewCampusView = (props) => {

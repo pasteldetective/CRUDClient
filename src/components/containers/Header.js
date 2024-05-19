@@ -24,10 +24,10 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'sans-serif', 
     fontSize: '35px', 
-    color: 'darkblue'
+    color: '#333333'
   },
   appBar:{
-    backgroundColor: '#fcb6bb',
+    backgroundColor: '#f7cac9',
     shadows: ['none'],
   },
   greeting:{
@@ -39,7 +39,15 @@ const useStyles = makeStyles(theme => ({
   },
   links:{
     textDecoration: 'none',
-  }
+  },
+  headerButton: {
+    marginRight: '10px',
+    backgroundColor: '#e4f0d0', // Change the background color
+    color: '#333333', // Change the text color
+    '&:hover': {
+      backgroundColor: '#C8D9AC',
+    },
+  },
 }));
 
 // Header component, displayed on every page
@@ -55,19 +63,19 @@ const Header = () => {
           </Typography>
 
           <Link className={classes.links} to={'/'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+            <Button variant="contained" className={classes.headerButton}>
               Home
             </Button>
           </Link>
 
           <Link className={classes.links} to={'/campuses'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+          <Button variant="contained" className={classes.headerButton}>
               All Campuses
             </Button>
           </Link>
 
           <Link className={classes.links} to={'/students'} >
-            <Button variant="contained" color="primary">
+          <Button variant="contained" className={classes.headerButton}>
               All Students
             </Button>
           </Link>
