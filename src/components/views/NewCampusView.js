@@ -72,7 +72,7 @@ const useStyles = makeStyles( () => ({
     e.preventDefault();
     let formIsValid = true;
 
-    // Validate only the 'Name' and 'Address' fields
+    // validate only the name and address
     ['name', 'address'].forEach(field => {
       if (!formData[field].trim()) {
         validateField(field, formData[field]);
