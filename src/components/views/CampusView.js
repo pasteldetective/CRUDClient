@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   card: {
-    maxWidth: 600, // Set a fixed max-width for the card
-    width: '100%', // Ensure the card takes the full width of its container
+    maxWidth: 600, // fix width of card
+    width: '100%', // full width of its container
     marginBottom: theme.spacing(2),
     backgroundColor: '#ffffff',
     borderRadius: '10px',
@@ -59,6 +59,13 @@ const useStyles = makeStyles((theme) => ({
     color: '#ffffff',
     '&:hover': {
       backgroundColor: '#f7a6a6',
+    },
+  },
+  deleteButton: {
+    backgroundColor: '#98473e',
+    color: '#ffffff',
+    '&:hover': {
+      backgroundColor: '#70312A',
     },
   },
 }));
@@ -109,7 +116,7 @@ const CampusView = (props) => {
             </Link>
             <Button
               variant="contained"
-              color="secondary"
+              className={classes.deleteButton}
               onClick={() => nowDeleteCampus(campus.id)}
             >
               Delete
