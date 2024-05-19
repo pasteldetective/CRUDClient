@@ -7,7 +7,7 @@ It constructs a React component to display all campuses.
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button, Typography, Card, CardContent, CardMedia, Grid, Divider } from '@material-ui/core';
+import { Button, Typography, Card, CardContent, CardMedia, Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +42,8 @@ const CampusCard = ({ campus }) => {
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card className={classes.card}>
-        <CardMedia className={classes.media} image={campus.imageUrl || 'https://placekitten.com/200/140'} title={campus.name} />
+        <CardMedia className={classes.media} 
+        image={campus.imageUrl || 'https://placekitten.com/200/140'} title={campus.name} />
         <CardContent>
           <Link to={`/campus/${campus.id}`}>
             <Typography gutterBottom variant="h5" component="h2">{campus.name}</Typography>
@@ -64,6 +65,9 @@ const AllCampusesView = ({ allCampuses }) => {
           <CampusCard key={campus.id} campus={campus} />
         ))}
       </Grid>
+      <Link to={`/newcampus`}>
+        <Button variant="contained" className={classes.addButton}>Add New Campus</Button>
+      </Link>
     </div>
   );
 };

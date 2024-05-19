@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'sans-serif', 
     fontSize: '35px', 
-    color: 'darkblue'
+    color: '#333333'
   },
   appBar:{
     backgroundColor: '#fcb6bb',
