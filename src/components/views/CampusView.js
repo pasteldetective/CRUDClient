@@ -35,6 +35,7 @@ const CampusView = (props) => {
     
       <div className="descriptionContainer">
         <p className="text">{campus.description}</p>
+        <h4>campus id: {campus.id}</h4>
       </div>
       
       <span>
