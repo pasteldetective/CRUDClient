@@ -20,9 +20,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 600, // fix width of card
     width: '100%', // full width of its container
     marginBottom: theme.spacing(2),
-    backgroundColor: '#ffffff',
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#f5f5e9', 
+    borderRadius: '15px',
+    border: '4px solid #ccccc0',
   },
   media: {
     height: 300,
