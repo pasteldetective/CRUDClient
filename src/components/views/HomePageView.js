@@ -33,7 +33,7 @@ const HomePageView = () => {
             style={{
               marginRight: '10px',
               backgroundColor: '#fcb6bb', // Background color
-              color: '#333333', // Text color
+              color: 'white', // Text color
               '&:hover': {
                 backgroundColor: '#f7a6a6', // Hover background color
               },
@@ -59,7 +59,7 @@ const HomePageView = () => {
             style={{
               marginRight: '10px',
               backgroundColor: '#fcb6bb', // Background color
-              color: '#333333', // Text color
+              color: 'white', // Text color
               '&:hover': {
                 backgroundColor: '#f7a6a6', // Hover background color
               },
