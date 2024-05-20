@@ -25,7 +25,7 @@ const HomePageView = () => {
           <Typography variant="body2" component="p">
             Explore different campuses and their details.
           </Typography>
-          <Divider></Divider>
+          <Divider style={{ margin: '10px 0' }} />
           <Button 
             component={Link} 
             to="/campuses" 
@@ -51,7 +51,7 @@ const HomePageView = () => {
           <Typography variant="body2" component="p">
             Discover students enrolled in campuses.
           </Typography>
-          <Divider></Divider>
+          <Divider style={{ margin: '10px 0' }} />
           <Button 
             component={Link} 
             to="/students" 
