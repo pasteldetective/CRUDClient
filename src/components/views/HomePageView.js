@@ -32,10 +32,10 @@ const HomePageView = () => {
             variant="contained" 
             style={{
               marginRight: '10px',
-              backgroundColor: '#e4f0d0', // Background color
+              backgroundColor: '#fcb6bb', // Background color
               color: '#333333', // Text color
               '&:hover': {
-                backgroundColor: '#C8D9AC', // Hover background color
+                backgroundColor: '#f7a6a6', // Hover background color
               },
             }}
           >
@@ -52,7 +52,19 @@ const HomePageView = () => {
             Discover students enrolled in campuses.
           </Typography>
           <Divider></Divider>
-          <Button component={Link} to="/students" variant="contained" color="primary">
+          <Button 
+            component={Link} 
+            to="/students" 
+            variant="contained" 
+            style={{
+              marginRight: '10px',
+              backgroundColor: '#fcb6bb', // Background color
+              color: '#333333', // Text color
+              '&:hover': {
+                backgroundColor: '#f7a6a6', // Hover background color
+              },
+            }}
+          >
             Explore Students
           </Button>
         </CardContent>
