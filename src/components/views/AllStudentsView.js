@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// student card for indivudal rendering
 const StudentCard = ({ student }) => {
   const classes = useStyles();
   const name = `${student.firstname} ${student.lastname}`;
@@ -66,6 +67,7 @@ const StudentCard = ({ student }) => {
   );
 };
 
+// renders all students or no students are available
 const AllStudentsView = ({ students }) => {
   const classes = useStyles();
 

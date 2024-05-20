@@ -45,6 +45,7 @@ const NewStudentView = (props) => {
   const { handleChange, handleSubmit } = props;
   const classes = useStyles();
 
+  // state for form data n errors
   const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', gpa: '', imageUrl: '', campusId: '' });
   const [errors, setErrors] = useState({});
 
@@ -52,6 +53,7 @@ const NewStudentView = (props) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
 
+    // clears errors when user tpes
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
