@@ -66,6 +66,7 @@ const NewStudentView = (props) => {
     setErrors(prev => ({ ...prev, [name]: error }));
   };
 
+  //need first, last and email to be required to validate the form
   const onSubmit = (e) => {
     e.preventDefault();
     let formIsValid = true;
