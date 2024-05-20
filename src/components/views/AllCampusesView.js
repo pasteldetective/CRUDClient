@@ -82,7 +82,7 @@ const AllCampusesView = ({ allCampuses }) => {
       <Link to={`/newcampus`}>
         <Button variant="contained" className={classes.addButton}>Add New Campus</Button>
       </Link>
-      <h1></h1>
+      <h2></h2>
     </div>
   );
 };

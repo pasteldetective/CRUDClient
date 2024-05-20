@@ -86,9 +86,10 @@ const AllStudentsView = ({ students }) => {
       )}
       <Link to={`/newstudent`}>
         <Button variant="contained" className={classes.addButton}>
-          Add New Student
+          Add New Student Here
         </Button>
       </Link>
+      <h2></h2>
     </div>
   );
 };
