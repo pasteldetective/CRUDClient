@@ -24,7 +24,7 @@ class EditStudentContainer extends Component {
       firstname: student.firstname,
       lastname: student.lastname,
       campusId: student.campusId,
-      imageURL: student.imageURL,
+      imageUrl: student.imageUrl,
       gpa: student.gpa,
       email: student.email,
       studentId: student.id, 
@@ -53,7 +53,7 @@ class EditStudentContainer extends Component {
       student.firstname = this.state.firstname
       student.lastname = this.state.lastname
       student.campusId = this.state.campusId
-      student.imageURL = this.state.imageURL
+      student.imageUrl = this.state.imageUrl
       student.gpa = this.state.gpa
       student.email = this.state.email
  
@@ -65,7 +65,7 @@ class EditStudentContainer extends Component {
         lastname: '', 
         campusId: '', 
         email: '',
-        imageURL: '',
+        imageUrl: '',
         gpa: '',
         redirect: true
       });
