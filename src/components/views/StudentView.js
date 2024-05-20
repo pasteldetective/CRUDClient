@@ -93,7 +93,7 @@ const StudentView = (props) => {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image={student.imageURL || 'https://placekitten.com/600/300'}
+          image={student.imageUrl || 'https://placekitten.com/600/300'}
           title={student.firstname + " " + student.lastname}
         />
         <CardContent className={classes.content}>
