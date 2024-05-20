@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     border: '4px solid #ccccc0',
   },
   media: {
-    height: 170,
+    height: 200,
   },
   gridContainer: {
     width: '100%',
