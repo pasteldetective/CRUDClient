@@ -45,15 +45,42 @@ const NewStudentView = (props) => {
   const { handleChange, handleSubmit } = props;
   const classes = useStyles();
 
-  // state for form data n errors
+  // state for form data and errors
   const [formData, setFormData] = useState({ firstname: '', lastname: '', email: '', gpa: '', imageUrl: '', campusId: '' });
   const [errors, setErrors] = useState({});
+  const [gpaErrorMessage, setGpaErrorMessage] = useState('');
+  const [campusIdErrorMessage, setCampusIdErrorMessage] = useState('');
 
   const onChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    let newValue = value;
 
-    // clears errors when user tpes
+    // make input a number for campus id
+    if (name === 'campusId') {
+      if (!/^\d+$/.test(value)) {
+        // 
+        newValue = '';
+        setCampusIdErrorMessage('Please enter only numbers for Campus ID.');
+      } else {
+        setCampusIdErrorMessage('');
+      }
+    }
+
+    // 0-4 GPA
+    if (name === 'gpa') {
+      const parsedValue = parseFloat(value);
+      if (isNaN(parsedValue) || parsedValue < 0 || parsedValue > 4) {
+        // set it to an empty string if not 0 -4
+        newValue = '';
+        setGpaErrorMessage('Please enter a number between 0 and 4.');
+      } else {
+        setGpaErrorMessage('');
+      }
+    }
+
+    setFormData(prev => ({ ...prev, [name]: newValue }));
+
+    // Clear errors when user types
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -68,7 +95,7 @@ const NewStudentView = (props) => {
     setErrors(prev => ({ ...prev, [name]: error }));
   };
 
-  //need first, last and email to be required to validate the form
+  // Need first, last, and email to be required to validate the form
   const onSubmit = (e) => {
     e.preventDefault();
     let formIsValid = true;
@@ -131,6 +158,8 @@ const NewStudentView = (props) => {
               name="gpa"
               value={formData.gpa}
               onChange={onChange}
+              error={!!errors.gpa || !!gpaErrorMessage}
+              helperText={errors.gpa || gpaErrorMessage}
               fullWidth
               margin="normal"
             />
@@ -147,6 +176,8 @@ const NewStudentView = (props) => {
               name="campusId"
               value={formData.campusId}
               onChange={onChange}
+              error={!!errors.campusId || !!campusIdErrorMessage}
+              helperText={errors.campusId || campusIdErrorMessage}
               fullWidth
               margin="normal"
             />
