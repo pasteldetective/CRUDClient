@@ -68,6 +68,9 @@ const AllCampusesView = ({ allCampuses }) => {
 
   return (
     <div className={classes.root}>
+      <Link to={`/newcampus`}>
+        <Button variant="contained" className={classes.addButton}>Add New Campus Here</Button>
+      </Link>
       {allCampuses.length === 0 ? (
       <Typography variant="h6" className={classes.noCampuses}>
         There are no campuses.
@@ -79,10 +82,7 @@ const AllCampusesView = ({ allCampuses }) => {
         ))}
       </Grid>
       )}
-      <Link to={`/newcampus`}>
-        <Button variant="contained" className={classes.addButton}>Add New Campus</Button>
-      </Link>
-      <h2></h2>
+      
     </div>
   );
 };
