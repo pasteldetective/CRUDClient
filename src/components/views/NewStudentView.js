@@ -95,22 +95,28 @@ const NewStudentView = (props) => {
     setErrors(prev => ({ ...prev, [name]: error }));
   };
 
-  // Need first, last, and email to be required to validate the form
-  const onSubmit = (e) => {
-    e.preventDefault();
-    let formIsValid = true;
+  //need first, last and email to be required to validate the form
+const onSubmit = (e) => {
+  e.preventDefault();
+  let formIsValid = true;
 
-    ['firstname', 'lastname', 'email'].forEach(field => {
-      if (!formData[field].trim()) {
-        validateField(field, formData[field]);
-        formIsValid = false;
-      }
-    });
-
-    if (formIsValid) {
-      handleSubmit(e, formData);
+  // check for errors in required fields
+  ['firstname', 'lastname', 'email'].forEach(field => {
+    if (!formData[field].trim()) {
+      validateField(field, formData[field]);
+      formIsValid = false;
     }
-  };
+  });
+
+  // check for errors in GPA and Campus ID fields so no freezing screen
+  if (!!errors.gpa || !!gpaErrorMessage || !!errors.campusId || !!campusIdErrorMessage) {
+    formIsValid = false;
+  }
+
+  if (formIsValid) {
+    handleSubmit(e, formData);
+  }
+};
 
   return (
     <div>
